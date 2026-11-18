@@ -10,7 +10,6 @@ from django.views import View
 from django.views.generic import TemplateView
 
 from . import proxmox
-from .sample_data import LABS
 
 SESSION_KEY = "proxmox_auth"
 RENEW_AFTER = 5 * 60  # renew on page load if the ticket is older than this (seconds)
@@ -107,7 +106,6 @@ class WorkspaceView(LoginRequiredMixin, ProxmoxTicketMixin, TemplateView):
         }
 
         context.update({
-            "labs": LABS,
             "vms": vms,
             "vm_error": vm_error,
             "proxmox_username": self.auth["username"],

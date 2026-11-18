@@ -32,3 +32,7 @@ certs/*
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# React: installed packages and the built file (rebuild with `npm run build`)
+frontend/node_modules/
+labs/static/labs/react/

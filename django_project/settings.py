@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     # replaces the normal runserver command.
     "labs",
     "django.contrib.staticfiles",
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
@@ -144,6 +145,13 @@ LOGIN_URL = "login"
 LOGIN_REDIRECT_URL = "workspace"
 LOGOUT_REDIRECT_URL = "login"
 
+# Django REST Framework
+# Only logged-in students can read the API. The React code runs on the same site,
+# so the browser's normal Django login (session cookie) is what authenticates it.
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": ["rest_framework.authentication.SessionAuthentication"],
+    "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.IsAuthenticated"],
+}
 
 # Proxmox
 # All values come from .env (see .env.example for what each one means).
